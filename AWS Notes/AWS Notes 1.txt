@@ -1,0 +1,56 @@
+AWS Notes 1 :
+
+Region has multiple zones
+VPC created in a region cannot be expanded into another region. 
+VPC created in a region can be expanded into multiple Avaliable Zones ( of the region).
+On the service limits navigate through AWS Service Limits
+For a VPC  we have only one internet gateway, IGW. (IGW,NAT,TGW,EGW,VPN)
+
+For this  session there wont be billing for te following.
+VPC
+Subnets
+IGW
+RT
+Routes
+SG
+Keypairs
+
+Billing will be taking place for 
+EC2 Instance -> t2.micro
+-----------------------------------------------------------------------------------------------------------------
+Steps to create a VPC (Virtual Private Cloud)
+
+1.Decide a VPC(Virtual Private Cloud) name  and create a new VPC (Virtual Private Cloud) 
+  We will name the VPC AWS-TEST-DEC-19  and IP Address space we are going to use is 10.1.0.0/16 => 65000 IPs.
+  Enable DNS Hostnames.
+
+ 
+2.Create three subnets  on AWS-TEST-DEC-19. Enable automatic IP Assignment.
+
+AWSDEC19-Subnet1 - 10.1.1.0/24 - 2a
+AWSDEC19-Subnet2 - 10.1.2.0/24 - 2b
+AWSDEC19-Subnet3 - 10.1.3.0/24 - 2c
+
+3.Create IGW (Internet Gateway) and attach it to the VPC. IGW name is AWS-TEST-DEC-19-IGW
+
+4.Create new routing table for AWS-TEST-DEC-19-MAIN-RT and associate subnets to it.
+  Ignore the routing table.
+
+5.Create a Security group AWS-TEST-DEC-19-SG and allow all in bound parts.
+
+6. Create a Key-Pair which create Public abd Private Keys. AWS will have Public Key and you will  be given Private Key.
+   We need to use the Private Key to login into the isntance.
+   Key Pair name : DEC19KEY
+
+ 7.Develop a Linux t2.micro instance and connect to it using Private key u have created.
+ Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0c64dd618a49aeee8
+
+ Tag : Name
+ Value : Server 1
+
+ Finally created instance :i-0d2ad953fdc4123c7
+ -------------------------------------------------------------------------------------------------------------------
+To work with the linux machines we need to downlaod
+1.putty
+2.putty gen
+--------------------------------------------------------------------------------------------------------------------
